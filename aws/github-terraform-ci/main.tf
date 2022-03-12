@@ -43,6 +43,11 @@ module "aws" {
   s3_bucket_terraform_state_name     = local.s3_bucket_name
 }
 
+resource "aws_iam_role_policy_attachment" "terraform_plan_readonly" {
+  role       = module.aws.aws_iam_role_terraform_plan_name
+  policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+}
+
 # S3 Buckets
 
 # tfaction requires three types of S3 buckets.
