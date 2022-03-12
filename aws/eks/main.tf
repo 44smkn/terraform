@@ -20,6 +20,6 @@ provider "aws" {
 }
 
 module "eks" {
-  source       = "github.com/44smkn/terraform//modules/eks-with-karpenter?ref=module_modules_eks-with-karpenter_v0.2.5"
+  source       = "github.com/44smkn/terraform//modules/eks-with-karpenter?ref=module_modules_eks-with-karpenter_v0.2.6"
   cluster_name = "44smkn-test"
 }
