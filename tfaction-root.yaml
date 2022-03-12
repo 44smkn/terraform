@@ -6,6 +6,12 @@ target_groups:
   s3_bucket_name_plan_file: 'v1-44smkn-terraform-state'
   s3_bucket_name_tfmigrate_history: 'v1-44smkn-terraform-state'
   template_dir: templates/github
+- working_directory: aws/
+  target: aws/
+  aws_region: ap-northeast-1
+  s3_bucket_name_plan_file: 'v1-44smkn-terraform-state'
+  s3_bucket_name_tfmigrate_history: 'v1-44smkn-terraform-state'
+  template_dir: templates/aws
 
   terraform_plan_config:
     aws_assume_role_arn: arn:aws:iam::171457761414:role/GitHubActions_Terraform_github_terraform_plan
