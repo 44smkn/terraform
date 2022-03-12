@@ -1,0 +1,11 @@
+---
+# https://github.com/aquasecurity/tfsec
+exclude: 
+- aws-autoscaling-enable-at-rest-encryption
+- aws-autoscaling-enforce-http-token-imds
+- aws-eks-enable-control-plane-logging
+- aws-eks-encrypt-secrets
+- aws-eks-no-public-cluster-access
+- aws-eks-no-public-cluster-access-to-cidr
+- aws-iam-no-policy-wildcards
+- aws-vpc-no-public-egress-sgr
