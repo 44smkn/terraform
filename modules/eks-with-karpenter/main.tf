@@ -62,13 +62,13 @@ data "aws_iam_policy" "ssm_managed_instance" {
 }
 
 resource "aws_iam_role_policy_attachment" "karpenter_ssm_policy" {
-  role       = module.eks.self_managed_node_groups.iam_role_name
+  role       = module.eks.self_managed_node_groups[0].iam_role_name
   policy_arn = data.aws_iam_policy.ssm_managed_instance.arn
 }
 
 resource "aws_iam_instance_profile" "karpenter" {
   name = "KarpenterNodeInstanceProfile-${var.cluster_name}"
-  role = module.eks.self_managed_node_groups.iam_role_name
+  role = module.eks.self_managed_node_groups[0].iam_role_name
 }
 
 module "iam_assumable_role_karpenter" {
