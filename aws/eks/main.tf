@@ -18,3 +18,8 @@ provider "aws" {
   region      = local.region
   max_retries = 3
 }
+
+module "eks" {
+  source       = "github.com/44smkn/terraform//modules/eks-with-karpenter?ref=module_modules_eks-with-karpenter_v0.1.0"
+  cluster_name = "44smkn-test"
+}
