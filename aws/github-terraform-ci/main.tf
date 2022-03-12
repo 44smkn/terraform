@@ -1,8 +1,7 @@
 locals {
-  # CHANGE
-  repo_name      = "suzuki-shunsuke/tfaction-getting-started"
-  s3_bucket_name = "<S3 Bucket Name for tfaction>"
-  region         = "us-east-1"
+  repo_name      = "44smkn/terraform"
+  s3_bucket_name = "v1-44smkn-terraform-state"
+  region         = "ap-northeast-1"
 }
 
 terraform {
@@ -53,8 +52,12 @@ module "aws" {
 # In this getting started, we use the same bucket for them.
 resource "aws_s3_bucket" "tfaction" {
   bucket        = local.s3_bucket_name
-  acl           = "private"
   force_destroy = true
+}
+
+resource "aws_s3_bucket_acl" "tfaction" {
+  bucket = aws_s3_bucket.tfaction.id
+  acl    = "private"
 }
 
 resource "aws_s3_bucket_public_access_block" "tfaction" {
