@@ -45,10 +45,9 @@ module "eks" {
   # Only need one node to get Karpenter up and running
   self_managed_node_groups = [
     {
-      name                 = "karpenter-controller"
-      launch_template_name = "karpenter-controller"
-      instance_type        = "t3a.medium"
-      asg_max_size         = 1
+      name          = "karpenter"
+      instance_type = "t3a.medium"
+      asg_max_size  = 1
     }
   ]
 
