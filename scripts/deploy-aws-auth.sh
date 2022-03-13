@@ -11,6 +11,9 @@ function main() {
   cat <<EOS >${script_dir}/aws-auth-cm.yaml
 apiVersion: v1
 kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
 data:
   mapUsers: |
     - userarn: arn:aws:iam::171457761414:user/44smkn
