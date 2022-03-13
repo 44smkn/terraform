@@ -19,10 +19,10 @@ provider "aws" {
   max_retries = 3
 }
 
-module "eks" {
-  source       = "github.com/44smkn/terraform//modules/eks-with-karpenter?ref=module_modules_eks-with-karpenter_v0.3.1"
-  cluster_name = "44smkn-test"
-}
+# module "eks" {
+#  source       = "github.com/44smkn/terraform//modules/eks-with-karpenter?ref=module_modules_eks-with-karpenter_v0.3.1"
+#  cluster_name = "44smkn-test"
+#}
 
 resource "aws_ecr_repository" "karpenter_controller" {
   name                 = "karpenter/controller"
