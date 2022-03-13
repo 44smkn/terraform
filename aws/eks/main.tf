@@ -24,8 +24,8 @@ module "eks" {
   cluster_name = "44smkn-test"
 }
 
-resource "aws_ecr_repository" "karpenter" {
-  name                 = "karpenter"
+resource "aws_ecr_repository" "karpenter_controller" {
+  name                 = "karpenter/controller"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
