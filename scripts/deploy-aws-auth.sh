@@ -15,6 +15,12 @@ metadata:
   name: aws-auth
   namespace: kube-system
 data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::171457761414:role/karpenter-node-group-20220313045240365100000001
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
   mapUsers: |
     - userarn: arn:aws:iam::171457761414:user/44smkn
       username: 44smkn
