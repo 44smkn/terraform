@@ -43,13 +43,12 @@ module "eks" {
   enable_irsa     = true
 
   # Only need one node to get Karpenter up and running
-  self_managed_node_groups = [
-    {
-      name          = "karpenter"
+  self_managed_node_groups = {
+    karpenter = {
       instance_type = "t3a.medium"
       asg_max_size  = 1
     }
-  ]
+  }
 
   tags = {
     "karpenter.sh/discovery/${var.cluster_name}" = "1"
