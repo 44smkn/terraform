@@ -52,6 +52,15 @@ module "eks" {
       type                       = "egress"
       source_node_security_group = true
     }
+
+    ingress_nodes_karpenter_ports_tcp = {
+      description                = "Karpenter readiness"
+      protocol                   = "tcp"
+      from_port                  = 8443
+      to_port                    = 8443
+      type                       = "ingress"
+      source_node_security_group = true
+    }
   }
 
   # Extend node-to-node security group rules
@@ -72,6 +81,15 @@ module "eks" {
       type             = "egress"
       cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks = ["::/0"]
+    }
+
+    aws_lb_controller_webhook = {
+      description                   = "Cluster API to AWS LB Controller webhook"
+      protocol                      = "all"
+      from_port                     = 9443
+      to_port                       = 9443
+      type                          = "ingress"
+      source_cluster_security_group = true
     }
   }
 
