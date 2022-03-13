@@ -9,3 +9,6 @@ exclude:
 - aws-eks-no-public-cluster-access-to-cidr
 - aws-iam-no-policy-wildcards
 - aws-vpc-no-public-egress-sgr
+- aws-ecr-enable-image-scans
+- aws-ecr-enforce-immutable-repository
+- aws-ecr-repository-customer-key
