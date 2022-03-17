@@ -5,6 +5,6 @@ registries:
 - type: standard
   ref: v1.9.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-- name: aquasecurity/tfsec@v1.9.1
+- name: aquasecurity/tfsec@v1.10.0
 - name: terraform-linters/tflint@v0.34.1
 - name: hashicorp/terraform@v1.1.7
