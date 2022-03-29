@@ -122,7 +122,7 @@ resource "aws_iam_instance_profile" "karpenter" {
 
 module "iam_assumable_role_karpenter" {
   source                        = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version                       = "4.17.0"
+  version                       = "4.17.1"
   create_role                   = true
   role_name                     = "karpenter-controller-${var.cluster_name}"
   provider_url                  = module.eks.cluster_oidc_issuer_url
