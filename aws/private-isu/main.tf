@@ -28,6 +28,7 @@ resource "aws_instance" "private_isu" {
   key_name               = aws_key_pair.laptop.key_name
   vpc_security_group_ids = [aws_security_group.private_isu.id]
   subnet_id              = element(module.vpc.public_subnets, 0)
+  iam_instance_profile   = aws_iam_role.ssm_role.name
   root_block_device {
     encrypted = true
   }
@@ -62,4 +63,29 @@ resource "aws_security_group" "private_isu" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+}
+
+data "aws_iam_policy_document" "ssm_role" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+  }
+}
+
+resource "aws_iam_instance_profile" "ssm_role" {
+  name = "ec2-role-for-ssm"
+  role = aws_iam_role.ssm_role.name
+}
+
+resource "aws_iam_role" "ssm_role" {
+  name               = "ec2-role-for-ssm"
+  assume_role_policy = data.aws_iam_policy_document.ssm_role.json
+}
+
+resource "aws_iam_role_policy_attachment" "ssm_role" {
+  role       = aws_iam_role.ssm_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
