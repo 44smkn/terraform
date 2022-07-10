@@ -33,7 +33,8 @@ resource "aws_instance" "private_isu" {
     encrypted = true
   }
   metadata_options {
-    http_tokens = "required"
+    http_endpoint = "enabled"
+    http_tokens   = "required"
   }
 }
 
