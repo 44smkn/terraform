@@ -36,7 +36,7 @@ resource "aws_instance" "isucon11_qualify" {
   }
 }
 
-#tfsec:ignore:aws-vpc-no-public-egress-sgr
+#tfsec:ignore:aws-vpc-no-public-egress-sgr #tfsec:ignore:aws-vpc-no-public-ingress-sgr
 resource "aws_security_group" "isucon11_qualify" {
   name        = "allow-ssh-http"
   description = "isucon11-qualify"
