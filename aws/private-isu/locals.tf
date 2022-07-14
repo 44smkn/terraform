@@ -3,5 +3,5 @@ locals {
 
   # https://github.com/catatsuy/private-isu#ami
   # arm64
-  ami = "ami-08ece261e7317422f"
+  # ami = "ami-08ece261e7317422f"
 }
