@@ -50,6 +50,22 @@ resource "aws_security_group" "isucon11_qualify" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
+    description      = "HTTPS"
+    from_port        = 443
+    to_port          = 443
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+  ingress {
+    description      = "HTTP"
+    from_port        = 9091
+    to_port          = 9091
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+  ingress {
     description      = "HTTP"
     from_port        = 80
     to_port          = 80
