@@ -32,7 +32,8 @@ resource "aws_instance" "isucon11_qualify" {
     encrypted = true
   }
   metadata_options {
-    http_tokens = "required"
+    http_endpoint = "enabled"
+    http_tokens   = "required"
   }
 }
 
