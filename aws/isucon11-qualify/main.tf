@@ -33,7 +33,7 @@ resource "aws_instance" "isucon11_qualify" {
   }
   metadata_options {
     http_endpoint = "enabled"
-    http_tokens = "required"
+    http_tokens   = "required"
   }
 }
 
