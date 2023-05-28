@@ -19,7 +19,7 @@ jobs:
         with:
           aqua_version: v1.12.1
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1.6.1
+        uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
           role-to-assume: arn:aws:iam::171457761414:role/GitHubActions_Terraform_github_terraform_apply
           role-session-name: eks-bootstrap
