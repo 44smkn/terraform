@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: aquaproj/aqua-installer@v1.2.0
         with:
-          aqua_version: v1.12.1
+          aqua_version: v1.38.0
 
       # We recommend using GitHub App Token instead of personal access token,
       # but in this getting started let's use personal access token.
